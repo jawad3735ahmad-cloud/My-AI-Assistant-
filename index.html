@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>میرا AI اسسٹنٹ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f2f2f2;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 22px;
+    }
+
+    #chat {
+      height: calc(100vh - 135px);
+      overflow-y: auto;
+      padding: 15px;
+    }
+
+    .msg {
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 12px;
+      max-width: 85%;
+      line-height: 1.6;
+    }
+
+    .user {
+      background: #d8f5d0;
+      margin-right: auto;
+    }
+
+    .ai {
+      background: white;
+      margin-left: auto;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>🤖 میرا AI اسسٹنٹ</header>
+
+<div id="chat">
+  <div class="msg ai">
+    السلام علیکم! میں آپ کا AI اسسٹنٹ ہوں۔ آپ کیا کرنا چاہتے ہیں؟
+  </div>
+</div>
+
+<div class="bottom">
+  <input id="message" placeholder="اپنا حکم لکھیں...">
+  <button onclick="sendMessage()">بھیجیں</button>
+</div>
+
+<script>
+function sendMessage() {
+  const input = document.getElementById("message");
+  const chat = document.getElementById("chat");
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  const user = document.createElement("div");
+  user.className = "msg user";
+  user.textContent = text;
+  chat.appendChild(user);
+
+  input.value = "";
+
+  const ai = document.createElement("div");
+  ai.className = "msg ai";
+  ai.textContent =
+    "آپ کا حکم موصول ہوگیا۔ اگلے مرحلے میں ہم اس چیٹ کو اصلی AI سے جوڑیں گے۔";
+  chat.appendChild(ai);
+
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
